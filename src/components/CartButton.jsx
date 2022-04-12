@@ -16,19 +16,37 @@ const CartButton = () => {
     const handleInc = () =>{
       setCount(count+1)
     }
-  return <>
+
+    if(count==0)
+    {
+      return <>
+        {
+          <button onClick={() => handleInc()}>Add To Cart</button>
+        }
+      </>
+    }
+    else{
+      return <>
   {/* add to cart button */}
   {/* <button>Add To Cart</button> */}
   {/* count with - and  + button */}
-  <button onClick={() => handleInc()}>Add To Cart</button>
+
+  {
+    <div>
+        <button onClick={ () => handleDec() }>-</button>
+        <p className="count-item">{count}</p>
+        <button onClick={()=>handleInc()}>+</button>
+    </div>
+
+  }
+  
 
   
 
-  <div>
-      <button onClick={ () => handleDec() }>-</button>
-      <p className="count-item">{count}</p>
-      <button onClick={()=>handleInc()}>+</button>
-  </div>
+  
   </>;
+
+    }
+  
 };
 export default CartButton
